@@ -1,9 +1,7 @@
 ##Lenguajes y Paradigmas de la Programación
 
 
-------------
-
-Quinta práctica de la asignatura. 
+Quinta práctica de la asignatura de LPP. 
 
 ------------
 
