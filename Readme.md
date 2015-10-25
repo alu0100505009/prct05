@@ -1,4 +1,4 @@
-**Lenguajes y Paradigmas de la Programación**
+##Lenguajes y Paradigmas de la Programación
 
 
 ------------
