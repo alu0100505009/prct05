@@ -21,6 +21,31 @@ class Fraccionarios
         Fraccionarios.new(-@num_,@den_)
    end
 
+	def +(b)
+		r=Fraccionarios.new
+		if (@den_==b.den_)
+			r.num_ = @num_ + b.num_
+			r.den_ = @den_
+		else
+			r.num_ = @num_ * b.den_ + b.num_ * @den_
+			r.den_ = @den_ * b.den_
+		end
+		r.num_,r.den_ = minimiza(r.num_,r.den_)
+		return r
+	end
+    
+	def -(b)
+		r =Fraccionarios.new
+		if (@den_ == b.den_)
+			r.num_=@num_- b.num_
+			r.den_=@den_
+		else
+			r.num_=@num_ * b.den_ - b.num_ * @den_
+			r.den_ = @den_ * b.den_
+		end
+		r.num_,r.den_ = minimiza(r.num_,r.den_)
+		return r
+	end
 
 
 end 
