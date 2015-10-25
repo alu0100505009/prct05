@@ -30,7 +30,7 @@ class Fraccionarios
 			r.num_ = @num_ * b.den_ + b.num_ * @den_
 			r.den_ = @den_ * b.den_
 		end
-		r.num_,r.den_ = minimiza(r.num_,r.den_)
+		# r.num_,r.den_ = minimiza(r.num_,r.den_)
 		return r
 	end
     
@@ -43,7 +43,7 @@ class Fraccionarios
 			r.num_=@num_ * b.den_ - b.num_ * @den_
 			r.den_ = @den_ * b.den_
 		end
-		r.num_,r.den_ = minimiza(r.num_,r.den_)
+		# r.num_,r.den_ = minimiza(r.num_,r.den_)
 		return r
 	end
 
