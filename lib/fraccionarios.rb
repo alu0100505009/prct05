@@ -50,9 +50,16 @@ class Fraccionarios
 		r =Fraction.new
 		r.num_=@num_ * b.num_
 		r.den_=@den_ * b.den_
-		r.num_,r.den_ = minimiza(r.num_,r.den_)
+		# r.num_,r.den_ = minimiza(r.num_,r.den_)
 		return r
    end
 
+	def /(b)
+		r =Fraction.new
+		r.num_=@num_ / b.num_
+		r.den_=@den_ * b.den_
+		# r.num_,r.den_ = minimiza(r.num_,r.den_)
+		return r
+   end
 
 end 
