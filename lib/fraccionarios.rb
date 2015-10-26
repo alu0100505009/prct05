@@ -1,3 +1,5 @@
+require "gcd.rb"
+
 class Fraccionarios
 
 	attr_writer :num, :den	
@@ -29,7 +31,7 @@ class Fraccionarios
 			r.num_ = @num_ * b.den_ + b.num_ * @den_
 			r.den_ = @den_ * b.den_
 		end
-		# r.num_,r.den_ = minimiza(r.num_,r.den_)
+		r.num_,r.den_ = minimiza(r.num_,r.den_)
 		return r
 	end
     
@@ -42,7 +44,7 @@ class Fraccionarios
 			r.num_=@num_ * b.den_ - b.num_ * @den_
 			r.den_ = @den_ * b.den_
 		end
-		# r.num_,r.den_ = minimiza(r.num_,r.den_)
+		r.num_,r.den_ = minimiza(r.num_,r.den_)
 		return r
 	end
 
@@ -50,7 +52,7 @@ class Fraccionarios
 		r =Fraction.new
 		r.num_=@num_ * b.num_
 		r.den_=@den_ * b.den_
-		# r.num_,r.den_ = minimiza(r.num_,r.den_)
+		r.num_,r.den_ = minimiza(r.num_,r.den_)
 		return r
    end
 
@@ -58,8 +60,15 @@ class Fraccionarios
 		r =Fraction.new
 		r.num_=@num_ / b.num_
 		r.den_=@den_ * b.den_
-		# r.num_,r.den_ = minimiza(r.num_,r.den_)
+		r.num_,r.den_ = minimiza(r.num_,r.den_)
 		return r
+   end
+
+	def minimiza(x,y)
+     d = gcd(x,y)
+     x = x/d
+     y = y/d
+     return x,y
    end
 
 end 
