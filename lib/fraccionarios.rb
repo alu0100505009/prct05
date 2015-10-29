@@ -1,4 +1,4 @@
-require "gcd.rb"
+require "./lib/gcd.rb"
 
 class Fraccionarios
 
@@ -15,11 +15,11 @@ class Fraccionarios
 	end
 
 	def to_f 
-        @num_.to_f/@den_.to_f
+		@num_.to_f/@den_.to_f
    end
 
 	def -@
-        Fraccionarios.new(-@num_,@den_)
+		Fraccionarios.new(-@num_,@den_)
    end
 
 	def +(b)
@@ -49,7 +49,7 @@ class Fraccionarios
 	end
 
 	def *(b)
-		r =Fraction.new
+		r =Fracccionarios.new
 		r.num_=@num_ * b.num_
 		r.den_=@den_ * b.den_
 		r.num_,r.den_ = minimiza(r.num_,r.den_)
@@ -57,7 +57,7 @@ class Fraccionarios
    end
 
 	def /(b)
-		r =Fraction.new
+		r =Fraccionarios.new
 		r.num_=@num_ / b.num_
 		r.den_=@den_ * b.den_
 		r.num_,r.den_ = minimiza(r.num_,r.den_)
@@ -65,10 +65,10 @@ class Fraccionarios
    end
 
 	def minimiza(x,y)
-     d = gcd(x,y)
-     x = x/d
-     y = y/d
-     return x,y
+		d = gcd(x,y)
+		x = x/d
+		y = y/d
+		return x,y
    end
 
 end 
