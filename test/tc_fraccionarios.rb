@@ -25,8 +25,8 @@ class Test_Fraciones < Test::Unit::TestCase
 	end
 
 	def test_multiplicacion 
-	   assert_equal("1/4",(@racional1 * @racional2).to_s)
-        end
+		assert_equal("1/4",(@racional1 * @racional2).to_s)
+	end
 
 	def test_division
 	   assert_equal("1/1",(@racional1 / @racional2).to_s)

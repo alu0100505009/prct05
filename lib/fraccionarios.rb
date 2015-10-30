@@ -7,32 +7,32 @@ class Fraccionarios
 	attr_reader :num, :den
 
 
-	def initialize (num,den) #metodo para inicializar los objetos
+	def initialize (num,den)
 		if den != 0
 			@den=den
 		else
 			puts "No puede poner un denominardor igual a cero(0)"
 		end
-			@num = num #@varaibles de instancia         
+			@num = num 
 	end
 
 	def to_s 
 		"#{num}/#{den}"
 	end
 
-	def *(nuevo) #metodo para realizar la multiplicacion de dos fraciones pasamos un objeto como parametro
-		resultado = Fraccionarios.new(@num*nuevo.num , @den*nuevo.den)
-		min(resultado)
+	def *(b)
+		r = Fraccionarios.new(@num*b.num , @den*b.den)
+		min(r)
 	end
 
-	def /(nuevo) #metodo para realizar la division de dos fracciones pasamos un objeto como parametro
-		resultado = Fraccionarios.new(@num*nuevo.den , @den*nuevo.num)
-		min(resultado)
+	def /(b)
+		r = Fraccionarios.new(@num*b.den , @den*b.num)
+		min(r)
 	end
 
-	def min(nuevo) #metodo para realizar la simplificacion del resultado de las operaciones
-		aux = gcd(nuevo.num , nuevo.den)
-		Fraccionarios.new(nuevo.num/aux , nuevo.den/aux) 
+	def min(b) 
+		aux = gcd(b.num , b.den)
+		Fraccionarios.new(b.num/aux , b.den/aux) 
 	end
 
 end 
