@@ -1,4 +1,5 @@
 require "./lib/gcd.rb"
+require "./lib/mcm.rb"
 
 class Fraccionarios
 
@@ -6,69 +7,32 @@ class Fraccionarios
 	attr_reader :num, :den
 
 
-	def initialize(num, den)
-		@num_, @den_ = num, den
-	end
-
-	def to_s
-		"#{@num_}/#{@den_}"
-	end
-
-	def to_f 
-		@num_.to_f/@den_.to_f
-   end
-
-	def -@
-		Fraccionarios.new(-@num_,@den_)
-   end
-
-	def +(b)
-		r=Fraccionarios.new
-		if (@den_==b.den_)
-			r.num_ = @num_ + b.num_
-			r.den_ = @den_
+	def initialize (num,den) #metodo para inicializar los objetos
+		if den != 0
+			@den=den
 		else
-			r.num_ = @num_ * b.den_ + b.num_ * @den_
-			r.den_ = @den_ * b.den_
+			puts "No puede poner un denominardor igual a cero(0)"
 		end
-		r.num_,r.den_ = minimiza(r.num_,r.den_)
-		return r
-	end
-    
-	def -(b)
-		r =Fraccionarios.new
-		if (@den_ == b.den_)
-			r.num_=@num_- b.num_
-			r.den_=@den_
-		else
-			r.num_=@num_ * b.den_ - b.num_ * @den_
-			r.den_ = @den_ * b.den_
-		end
-		r.num_,r.den_ = minimiza(r.num_,r.den_)
-		return r
+			@num = num #@varaibles de instancia         
 	end
 
-	def *(b)
-		r =Fracccionarios.new
-		r.num_=@num_ * b.num_
-		r.den_=@den_ * b.den_
-		r.num_,r.den_ = minimiza(r.num_,r.den_)
-		return r
-   end
+	def to_s 
+		"#{num}/#{den}"
+	end
 
-	def /(b)
-		r =Fraccionarios.new
-		r.num_=@num_ / b.num_
-		r.den_=@den_ * b.den_
-		r.num_,r.den_ = minimiza(r.num_,r.den_)
-		return r
-   end
+	def *(nuevo) #metodo para realizar la multiplicacion de dos fraciones pasamos un objeto como parametro
+		resultado = Fraccionarios.new(@num*nuevo.num , @den*nuevo.den)
+		min(resultado)
+	end
 
-	def minimiza(x,y)
-		d = gcd(x,y)
-		x = x/d
-		y = y/d
-		return x,y
-   end
+	def /(nuevo) #metodo para realizar la division de dos fracciones pasamos un objeto como parametro
+		resultado = Fraccionarios.new(@num*nuevo.den , @den*nuevo.num)
+		min(resultado)
+	end
+
+	def min(nuevo) #metodo para realizar la simplificacion del resultado de las operaciones
+		aux = gcd(nuevo.num , nuevo.den)
+		Fraccionarios.new(nuevo.num/aux , nuevo.den/aux) 
+	end
 
 end 
