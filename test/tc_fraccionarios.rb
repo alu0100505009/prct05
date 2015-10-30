@@ -29,6 +29,10 @@ class Test_Fraciones < Test::Unit::TestCase
 	   assert_equal("1/1",(@racional1 / @racional2).to_s)
 	end
 
+	def test_suma 
+	   assert_equal("1/1",(@racional1 + @racional2).to_s)
+	end
+
 	def test_negativo
 		assert_equal("-1/2", (-@racional1).to_s)
 	end
