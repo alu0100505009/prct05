@@ -41,6 +41,12 @@ class Fraccionarios
 		min(r)
 	end
 
+	def -(b) 
+		aux = mcm(@den , b.den)
+		r = Fraccionarios.new(((aux/@den)*@num)-((aux/b.den)*b.num),aux)
+		min(r)
+	end
+
 	def min(b) 
 		aux = gcd(b.num , b.den)
 		Fraccionarios.new(b.num/aux , b.den/aux) 
