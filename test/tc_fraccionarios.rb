@@ -21,4 +21,8 @@ class Test_Fraciones < Test::Unit::TestCase
       assert_not_equal("14/98", @racional2.to_s) 
 	end
 
+	def test_suma #para realizar solo las pruebas con la operacion suma
+		assert_equal("61/60",(@racional1 + @racional2).to_s)
+	end
+
 end
