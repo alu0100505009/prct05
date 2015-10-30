@@ -20,6 +20,11 @@ class Fraccionarios
 		"#{num}/#{den}"
 	end
 
+	def -@
+		r = Fraccionarios.new(@num = -num , @den = den)	
+		return r 
+	end
+
 	def *(b)
 		r = Fraccionarios.new(@num*b.num , @den*b.den)
 		min(r)
@@ -29,6 +34,8 @@ class Fraccionarios
 		r = Fraccionarios.new(@num*b.den , @den*b.num)
 		min(r)
 	end
+
+
 
 	def min(b) 
 		aux = gcd(b.num , b.den)

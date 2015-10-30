@@ -14,9 +14,6 @@ class Test_Fraciones < Test::Unit::TestCase
 	def teardown
 	end
 
-	def teardown 
-	end
-
 	def test_simple 
 		assert_equal("1/2", @racional1.to_s)
 		assert_equal("2/4", @racional2.to_s)
@@ -30,6 +27,10 @@ class Test_Fraciones < Test::Unit::TestCase
 
 	def test_division
 	   assert_equal("1/1",(@racional1 / @racional2).to_s)
+	end
+
+	def test_negativo
+		assert_equal("-1/2", (-@racional1).to_s)
 	end
 
 

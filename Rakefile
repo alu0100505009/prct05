@@ -14,3 +14,9 @@ desc "Pruebas unitarias para la suma"
 	task :suma do
 	sh "ruby -I. test/tc_racionales.rb -n /suma/"
 end
+
+desc "Pruebas unitarias para el negativo"
+	task :negativo do
+	sh "ruby -I. test/tc_racionales.rb -n /negativo/"
+end
+
